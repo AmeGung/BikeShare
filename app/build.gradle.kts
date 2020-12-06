@@ -74,6 +74,8 @@ dependencies {
     implementation(Koin.androidViewModel)
     implementation(Koin.compose)
 
+    implementation("org.osmdroid:osmdroid-android:6.1.8")
+
     testImplementation("junit:junit:4.13")
     androidTestImplementation("androidx.test:runner:1.2.0")
 

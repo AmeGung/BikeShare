@@ -19,7 +19,7 @@ import com.surrus.common.remote.Network
 import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun NetworkListScreen(countryCode: String, networkSelected: (network: String) -> Unit,  popBack: () -> Unit) {
+fun NetworkListScreen(countryCode: String, networkSelected: (network: Network) -> Unit,  popBack: () -> Unit) {
     val bikeShareViewModel = getViewModel<BikeShareViewModel>()
     val groupedNetworkListState = bikeShareViewModel.groupedNetworks.collectAsState(initial = emptyMap())
 
@@ -53,8 +53,8 @@ fun NetworkListScreen(countryCode: String, networkSelected: (network: String) ->
 }
 
 @Composable
-fun NetworkView(network: Network, networkSelected: (network: String) -> Unit) {
-    Row(modifier = Modifier.fillMaxWidth() + Modifier.clickable(onClick = { networkSelected(network.id) })
+fun NetworkView(network: Network, networkSelected: (network: Network) -> Unit) {
+    Row(modifier = Modifier.fillMaxWidth() + Modifier.clickable(onClick = { networkSelected(network) })
         + Modifier.padding(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 8.dp),
         verticalAlignment = Alignment.CenterVertically) {
 
